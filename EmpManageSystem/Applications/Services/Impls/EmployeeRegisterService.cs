@@ -1,5 +1,7 @@
 /// <summary>
 /// リスト9-1 Serviceインターフェイスとその実装
+/// Serviceは業務ユースケースを表現するインターフェイス
+///商品を登録する,在庫を更新する,従業員を登録するなど
 /// </summary>
 using EmpManageSystem.Applications.Repositories;
 using EmpManageSystem.Applications.Domains;
