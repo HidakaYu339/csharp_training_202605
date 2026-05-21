@@ -1,0 +1,29 @@
+///<summary>
+/// リスト10-2 ViewModelからドメインオブジェクトに変換するAdapter
+/// サービスはドメインオブジェクトを受け取るから、一旦ViewModelはアダプターを通して、ドメインオブジェクトにしないといけない
+///</summary>
+using EmpManageSystem.Applications.Adapters;
+using EmpManageSystem.Applications.Domains;
+namespace EmpManageSystem.Presentations.ViewModels;
+/// <summary>
+/// EmployeeRegisterViewModel(従業員登録ViewModel)を
+/// ドメインオブジェクト:Employeeに変換するアダプターインターフェイスの実装
+/// </summary>
+/// <typeparam name="TDomain">Employee</typeparam>
+/// <typeparam name="TTarget">EmployeeRegisterForm</typeparam>
+public class EmployeeRegisterViewModelAdapter : IRestorer<Employee, EmployeeRegisterViewModel>
+{
+    /// <summary>
+    /// EmployeeRegisterViewModelをドメインオブジェクト:Employeeに変換する
+    /// </summary>
+    /// <param name="target">EmployeeRegisterViewModel</param>
+    /// <returns>ドメインオブジェクト:Employee</returns>
+    public Employee Restore(EmployeeRegisterViewModel target)
+    {
+        // Department(部署)を作成する
+        var department = new Department(target.DeptId!.Value, target.DeptName);
+        // 登録するEmployee(従業員)を作成する
+        var employee = new Employee(target.Name!, department);
+        return employee;
+    }
+}
