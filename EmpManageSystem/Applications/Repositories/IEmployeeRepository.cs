@@ -1,5 +1,5 @@
 using EmpManageSystem.Applications.Domains;
-namespace WebApp_Sample.Applications.Repositories;
+namespace EmpManageSystem.Applications.Repositories;
 /// <summary>
 /// ドメインオブジェクト:従業員のCRUD操作インターフェイス
 /// </summary>

@@ -1,0 +1,54 @@
+///<summary>
+/// リポジトリがドメインオブジェクトとエンティティをアダプターで変換
+///リポジトリが業務処理から保存・取得を切り離して永続化をしてる
+/// </summary>
+using EmpManageSystem.Infrastructures.Context;
+using EmpManageSystem.Applications.Domains;
+using EmpManageSystem.Applications.Repositories;
+using EmpManageSystem.Infrastructures.Adapters;
+using EmpManageSystem.Exceptions;
+namespace EmpManageSystem.Infrastructures.Repositories;
+/// <summary>
+/// ドメインオブジェクト:従業員のCRUD操作インターフェイスの実装
+/// </summary>
+public class EmployeeRepository : IEmployeeRepository
+{
+    /// <summary>
+    /// アプリケーション用DbContext
+    /// </summary>
+    private readonly AppDbContext _context;
+    /// <summary>
+    /// ドメインモデル:従業員と従業員エンティティの相互変換インターフェイスの実装
+    /// </summary>
+    private readonly EmployeeEntityAdapter _adapter;
+
+    /// <summary>
+    /// コンストラクタ
+    /// </summary>
+    /// <param name="context"></param>
+    /// <param name="adapter"></param>
+    public EmployeeRepository(AppDbContext context, EmployeeEntityAdapter adapter)
+    {
+        _context = context;
+        _adapter = adapter;
+    }
+
+    /// <summary>
+    /// 従業員を永続化する
+    /// </summary>
+    /// <param name="employee">永続化対象の従業員</param>
+    public void Create(Employee employee)
+    {
+        try
+        {
+            var entity = _adapter.Convert(employee);
+            _context.Employees.Add(entity);
+            _context.SaveChanges();
+        }
+        catch (Exception e)
+        {
+            throw new InternalException(
+                "社員の永続化ができませんでした。", e);
+        }
+    }
+}

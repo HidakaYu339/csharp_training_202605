@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using EmpManageSystem.Infrastructures.Entities;
-namespace WebApp_Sample.Infrastructures.Context;
+namespace EmpManageSystem.Infrastructures.Context;
 /// <summary>
 /// DbContext継承クラス
 /// </summary>
