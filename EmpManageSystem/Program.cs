@@ -1,7 +1,13 @@
+///<summary>
+/// リスト10-7 DIコンテナ
+///</summary>
+using EmpManageSystem.Presentations.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+// 依存定義および依存性注入
+builder.Services.SettingDependencyInjection(builder.Configuration);
 
 var app = builder.Build();
 
