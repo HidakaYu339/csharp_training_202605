@@ -1,12 +1,16 @@
 ///<summary>
-/// リスト10-7 DIコンテナ
+/// リスト10-7 DIコンテナリスト10-8 InternalException(内部エラー)を処理するMiddleware
 ///</summary>
 using EmpManageSystem.Presentations.Extensions;
+using EmpManageSystem.Presentations.Middlewares;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 // 依存定義および依存性注入
+builder.Services.SettingDependencyInjection(builder.Configuration);
+
+// アプリケーションの依存関係を構築する
 builder.Services.SettingDependencyInjection(builder.Configuration);
 
 var app = builder.Build();
