@@ -14,7 +14,8 @@ builder.Services.SettingDependencyInjection(builder.Configuration);
 builder.Services.SettingDependencyInjection(builder.Configuration);
 
 var app = builder.Build();
-
+// IngternalExceptionをハンドリングするミドルウェアを有効にする
+app.UseMiddleware<InternalExceptionLoggingMiddleware>();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
