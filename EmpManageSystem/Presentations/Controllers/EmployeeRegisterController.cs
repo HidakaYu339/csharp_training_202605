@@ -12,7 +12,7 @@ namespace EmpManageSystem.Presentations.Controllers;
 public class EmployeeRegisterController : Controller
 {
     /// <summary>
-    /// ロガー
+    /// ロガー　フィールド
     /// </summary>
     private readonly ILogger<EmployeeRegisterController> _logger;
     /// <summary>

@@ -14,7 +14,7 @@ namespace EmpManageSystem.Presentations.Controllers;
 public class TempDataStore<T> where T : class
 {
     /// <summary>
-    /// オブジェクトにアクセスするキー
+    /// オブジェクトにアクセスするキー　プロパティ？
     /// </summary>
     private readonly string _key;
     /// <summary>

@@ -8,9 +8,9 @@ public class Employee
 {
     public int? Id { get; private set; } // 社員Id
     public string Name { get; private set; } = string.Empty; // 氏名
-    public Department? Department { get; private set; } // 所属部門（null可）
+    public Department? Department { get; private set; } // 所属部門（null可）プロパティ
 
-    private const int MaxLength = 20;
+    private const int MaxLength = 20;　//フィールド
 
     /// <summary>
     /// コンストラクタ
