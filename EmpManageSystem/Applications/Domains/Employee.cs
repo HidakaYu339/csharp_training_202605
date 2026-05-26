@@ -10,10 +10,12 @@ public class Employee
     public string Name { get; private set; } = string.Empty; // 氏名
     public Department? Department { get; private set; } // 所属部門（null可）プロパティ
 
-    private const int MaxLength = 20;　//フィールド
+    private const int MaxLength = 20; //フィールド
+
+
 
     /// <summary>
-    /// コンストラクタ
+    /// コンストラクタ「正しい社員データを作る初期化処理」のイメージ
     /// </summary>
     /// <param name="id">社員Id</param>
     /// <param name="name">氏名</param>
@@ -27,7 +29,7 @@ public class Employee
     }
 
     /// <summary>
-    /// ID未定の社員を作成する場合のコンストラクタ
+    /// ID未定の社員を作成する場合のコンストラクタt同じクラスらないだけど別のコンストラクタへ委託したい
     /// </summary>
     /// <param name="name">氏名</param>
     /// <param name="department">所属部署</param>
