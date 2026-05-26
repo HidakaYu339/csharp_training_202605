@@ -13,6 +13,7 @@ public interface IDepartmentRegisterService
     /// <returns></returns>
     List<Department> GetDepartments();
 
+
     /// <summary>
     /// 新しい部門を登録する
     /// </summary>

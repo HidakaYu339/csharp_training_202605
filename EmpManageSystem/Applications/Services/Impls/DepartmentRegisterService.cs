@@ -35,6 +35,8 @@ public class DepartmentRegisterService : IDepartmentRegisterService
         _employeeRepository = employeeRepository;
         _departmentRepository = departmentRepository;
     }
+
+
     /// <summary>
     /// すべての部署を取得する
     /// </summary>

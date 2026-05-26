@@ -10,6 +10,7 @@ using EmpManageSystem.Infrastructures.Context;
 using EmpManageSystem.Infrastructures.Repositories;
 using EmpManageSystem.Presentations.Controllers;
 using EmpManageSystem.Presentations.ViewModels;
+using EmpManageSystem.Applications.Domains;
 namespace EmpManageSystem.Presentations.Extensions;
 /// <summary>
 /// 依存定義および依存性注入クラス
@@ -70,8 +71,9 @@ public static class DependencyExtension
     /// <param name="services">DIコンテナ</param>
     private static void SettingApplications(IServiceCollection services)
     {
-        // 従業員登録サービスインターフェイスの実装
+        // 従業員登録サービスインターフェイスの実装部門版も
         services.AddScoped<IEmployeeRegisterService, EmployeeRegisterService>();
+        services.AddScoped<IDepartmentRegisterService, DepartmentRegisterService>();
     }
 
     /// <summary>
@@ -80,13 +82,18 @@ public static class DependencyExtension
     /// <param name="services">DIコンテナ</param>
     private static void SettingPresentations(IServiceCollection services)
     {
-        // 従業員登録ViewModelをドメインオブジェクト:従業員に変換するアダプターインターフェイスの実装
+        // 従業員登録ViewModelをドメインオブジェクト:従業員に変換するアダプターインターフェイスの実装それの逆も実装
         services.AddScoped<EmployeeRegisterViewModelAdapter>();
-        // TempDataへのEmployeeRegisterViewの保存・復元するためのクラス
+        services.AddScoped<DepartmentRegisterViewModelAdapter>();
+        // TempDataへのEmployeeRegisterViewの保存・復元するためのクラス部門版も
         // コンストラクタを利用して明示的にDIコンテナにインスタンスを登録する
         services.AddScoped(
             provider =>
             new TempDataStore<EmployeeRegisterViewModel>("EmployeeRegisterViewModel")
+        );
+        services.AddScoped(
+            provider =>
+            new TempDataStore<DepartmentRegisterViewModel>("DepartmentRegisterViewModel")
         );
     }
 }
