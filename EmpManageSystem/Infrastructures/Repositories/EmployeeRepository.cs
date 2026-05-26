@@ -42,8 +42,11 @@ public class EmployeeRepository : IEmployeeRepository
     {
         try
         {
+            //すべての社員を取得する
             var entities = _context.Employees.ToList();
+            //Employeeのリストを作成
             var results = new List<Employee>();
+            //取得したEntityからドメインオブジェクトを復元してリストに追加
             foreach (var entity in entities)
             {
                 results.Add(_adapter.Restore(entity));

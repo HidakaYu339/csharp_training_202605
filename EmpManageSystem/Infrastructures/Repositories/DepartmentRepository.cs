@@ -69,4 +69,22 @@ public class DepartmentRepository : IDepartmentRepository
                 "指定された部門Idの部門を取得できませんでした。", e);
         }
     }
+    /// <summary>
+    /// 部門を永続化する
+    /// </summary>
+    /// <param name="employee">永続化対象の部門</param>
+    public void Create(Department department)
+    {
+        try
+        {
+            var entity = _adapter.Convert(department);
+            _context.Departments.Add(entity);
+            _context.SaveChanges();
+        }
+        catch (Exception e)
+        {
+            throw new InternalException(
+                "部門の永続化ができませんでした。", e);
+        }
+    }
 }
