@@ -15,6 +15,7 @@ public class EmployeeRegisterViewModel
     /// </summary>
     [Display(Name = "氏名")]
     [Required(ErrorMessage = "{0}は入力必須です。")]
+    [MaxLength(20)]
     public string? Name { get; set; } = string.Empty;
     /// <summary>
     /// 所属部署
