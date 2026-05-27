@@ -71,7 +71,7 @@ public static class DependencyExtension
     /// <param name="services">DIコンテナ</param>
     private static void SettingApplications(IServiceCollection services)
     {
-        // 従業員登録サービスインターフェイスの実装部門版も
+        // 従業員登録サービスインターフェイスの実装  部門版も
         services.AddScoped<IEmployeeRegisterService, EmployeeRegisterService>();
         services.AddScoped<IDepartmentRegisterService, DepartmentRegisterService>();
     }
@@ -85,7 +85,7 @@ public static class DependencyExtension
         // 従業員登録ViewModelをドメインオブジェクト:従業員に変換するアダプターインターフェイスの実装それの逆も実装
         services.AddScoped<EmployeeRegisterViewModelAdapter>();
         services.AddScoped<DepartmentRegisterViewModelAdapter>();
-        // TempDataへのEmployeeRegisterViewの保存・復元するためのクラス部門版も
+        // TempDataへのEmployeeRegisterViewの保存・復元するためのクラス 部門版も
         // コンストラクタを利用して明示的にDIコンテナにインスタンスを登録する
         services.AddScoped(
             provider =>
