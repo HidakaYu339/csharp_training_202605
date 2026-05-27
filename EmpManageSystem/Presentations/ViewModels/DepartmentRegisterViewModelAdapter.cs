@@ -10,10 +10,10 @@ namespace EmpManageSystem.Presentations.ViewModels;
 public class DepartmentRegisterViewModelAdapter : IRestorer<Department, DepartmentRegisterViewModel>
 {
     /// <summary>
-    /// EmployeeRegisterViewModelをドメインオブジェクト:Employeeに変換する
+    /// DepartmentRegisterViewModelをドメインオブジェクト:Departmentに変換する
     /// </summary>
-    /// <param name="target">EmployeeRegisterViewModel</param>
-    /// <returns>ドメインオブジェクト:Employee</returns>
+    /// <param name="target">DepartmentRegisterViewModel</param>
+    /// <returns>ドメインオブジェクト:Department</returns>
     public Department Restore(DepartmentRegisterViewModel target)
     {
         // Department(部署)を作成する

@@ -14,14 +14,13 @@ public class DepartmentRegisterController : Controller
 {
     /// <summary>
     /// ロガー
-    /// </summary>
-    private readonly ILogger<DepartmentRegisterController> _logger;
     /// <summary>
+    private readonly ILogger<DepartmentRegisterController> _logger;
     /// 部門登録サービスインターフェイス
     /// </summary>
     private readonly IDepartmentRegisterService _departmentRegisterService;
     /// <summary>
-    /// 部門登録ViewModelをEmployeeに変換するアダプター
+    /// 部門登録ViewModelをDepartmentに変換するアダプター
     /// </summary>
     private readonly DepartmentRegisterViewModelAdapter _adapter;
     /// <summary>
@@ -116,7 +115,7 @@ public class DepartmentRegisterController : Controller
             // データが存在しない場合、入力画面にリダイレクト
             return RedirectToAction("Enter");
         }
-        // EmployeeRegisterFormをドメインモデル:Employeeに変換する
+        // DepartmentRegisterFormをドメインモデル:Departmentに変換する
         var department = _adapter.Restore(viewModel!);
         // 新しい部門を登録する
         _departmentRegisterService.Register(department);
@@ -131,7 +130,7 @@ public class DepartmentRegisterController : Controller
     public IActionResult Back(DepartmentRegisterViewModel viewModel)
     {
         _logger.LogInformation("[戻る]ボタンクリック:{0}", viewModel!.ToString());
-        // EmployeeRegisterViewModelをシリアライズして、TempDataに保存する
+        // DepartmentRegisterViewModelをシリアライズして、TempDataに保存する
         _dpaDataStore.Save(this, viewModel);
         // 入力画面を出力するアクションメソッドにリダイレクトする
         return RedirectToAction("Enter");
