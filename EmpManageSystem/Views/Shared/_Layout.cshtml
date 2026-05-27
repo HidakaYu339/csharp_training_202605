@@ -4,8 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ViewDataに設定された"Title"の値をタイトルに表示 -->
     <title>@ViewData["Title"] - EmpManageSystem</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- CSSファイルにバージョン情報を付与してキャッシュを防ぐ -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/EmpManageSystem.styles.css" asp-append-version="true" />
 </head>
@@ -14,6 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
+                <!-- ルーティング属性でHomeControllerのIndexアクションにリンク -->
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">EmpManageSystem</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,6 +25,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-Employee">
+                            <!-- Homeリンク（HomeControllerのIndexアクション） -->
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
 
@@ -30,6 +34,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="EmployeeRegister"
                                asp-action="Enter">従業員登録</a>
                         </li>
+                        @* 部門登録を追加 *@
                         <li class="nav-Department">
                             <a class="nav-link text-dark" asp-area="" asp-controller="DepartmentRegister"
                                asp-action="Enter">部門登録</a>
@@ -41,6 +46,7 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            <!-- 各ビュー（.cshtmlファイル）の内容がここに表示される -->
             @RenderBody()
         </main>
     </div>
