@@ -15,6 +15,8 @@ public class DepartmentRegisterViewModel
     /// </summary>
     [Display(Name = "部門")]
     [Required(ErrorMessage = "部門は入力必須です。")]
+    [MaxLength(20)]
+
     public string? Name { get; set; } = string.Empty;
 
     /// <summary>
