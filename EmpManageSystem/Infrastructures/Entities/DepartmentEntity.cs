@@ -16,6 +16,7 @@ public class DepartmentEntity
     /// <summary>
     /// 部門名
     /// </summary> 
+
     [Column("name")]
     public string DeptName { get; set; } = string.Empty;
 }

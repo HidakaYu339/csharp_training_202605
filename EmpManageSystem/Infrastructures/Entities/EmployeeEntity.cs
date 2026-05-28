@@ -21,6 +21,7 @@ public class EmployeeEntity
     /// <summary>
     /// 所属部門Id(外部キー)
     /// </summary>
+
     [Column("dept_id")]
     public int? DeptId { get; set; }
 }

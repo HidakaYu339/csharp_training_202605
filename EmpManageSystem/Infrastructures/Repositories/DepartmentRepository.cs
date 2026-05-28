@@ -72,7 +72,7 @@ public class DepartmentRepository : IDepartmentRepository
     /// <summary>
     /// 部門を永続化する
     /// </summary>
-    /// <param name="employee">永続化対象の部門</param>
+    /// <param name="department">永続化対象の部門</param>
     public void Create(Department department)
     {
         try

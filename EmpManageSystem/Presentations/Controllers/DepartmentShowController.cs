@@ -23,29 +23,30 @@ public class DepartmentShowController : Controller
     /// <summary>
     /// TempDataを通じて一時的にViewModelを保存・復元するためのクラス
     /// </summary>
-    private readonly TempDataStore<DepartmentShowViewModel> _dpaDataStore;
+    private readonly TempDataStore<DepartmentShowViewModel> _dpasDataStore;
 
     /// <summary>
     /// コンストラクタ
     /// </summary>
     public DepartmentShowController(
      ILogger<DepartmentShowController> logger, IDepartmentRegisterService departmentRegisterService,
-     DepartmentShowViewModelAdapter departmentShowViewModelAdapter, TempDataStore<DepartmentShowViewModel> dpaDataStore)
+     DepartmentShowViewModelAdapter departmentShowViewModelAdapter, TempDataStore<DepartmentShowViewModel> dpasDataStore)
     {
         _logger = logger;
         _departmentRegisterService = departmentRegisterService;
         _adapter = departmentShowViewModelAdapter;
-        _dpaDataStore = dpaDataStore;
+        _dpasDataStore = dpasDataStore;
     }
 
     /// <summary>
     /// 部門登録(入力)画面表示 アクションメソッド
     /// </summary>
     /// <returns></returns>
-    [HttpGet("ShowData")]
+    [HttpGet("Show")]
     public IActionResult Show()
     {
         var list = new List<DepartmentShowViewModel>();
+
 
         return View(list);
     }
